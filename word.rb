@@ -22,3 +22,6 @@ class Word
 	end
 
 end
+
+word = Word.new
+puts "Here's the dictionary: #{world.dictionary}"
