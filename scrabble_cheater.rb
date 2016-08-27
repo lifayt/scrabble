@@ -1,0 +1,6 @@
+
+
+class ScrabbleCheater
+
+	
+end
