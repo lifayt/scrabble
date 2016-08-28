@@ -10,7 +10,7 @@ class Word
 	end
 
 	def validate(word)
-		@dictionary.include?(word)
+		key_validate(word)
 	end
 
 	def anagrams(word)
@@ -22,6 +22,16 @@ class Word
 	end
 
 	private
+
+	def keyify(word)
+		word.chars.sort.join
+	end
+
+	def key_validate(word)
+		@dictionary[keyify(word)].include?(word)
+	end
+
+	#DEPRECATED
 
 	# returns an array of all words in the dictionary that share the same components as the originally defined word
 	def component_search(word)

@@ -4,8 +4,8 @@ class Dictionary
 	attr_accessor :dictionary
 
 	def initialize(path)
-		naive_initialize(path)
-		#dict_initialize(path)
+		#naive_initialize(path)
+		dict_initialize(path)
 	end
 
 	private
