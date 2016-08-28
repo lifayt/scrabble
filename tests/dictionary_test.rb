@@ -8,7 +8,9 @@ class DictionaryTest < Minitest::Test
 	end
 
 	def test_dictionary_size
-		assert_equal 187632, @dictionary.size
+		assert_equal 168626, @dictionary
 	end
+
+
 
 end
