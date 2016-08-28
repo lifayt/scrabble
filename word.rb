@@ -5,8 +5,8 @@ class Word
 
 	attr_accessor :dictionary
 
-	def initialize
-		@dictionary = Dictionary.new("data/twl3.txt").dictionary
+	def initialize(path)
+		@dictionary = Dictionary.new(path).dictionary
 	end
 
 	def validate(word)
@@ -36,7 +36,3 @@ class Word
 	end
 
 end
-
-word = Word.new
-
-
