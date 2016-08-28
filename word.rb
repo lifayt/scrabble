@@ -14,11 +14,11 @@ class Word
 	end
 
 	def anagrams(word)
-		component_search(word)
+		key_return(word)
 	end
 
 	def subwords(word)
-		subword_search(word)
+		subkey_search(word)
 	end
 
 	private
@@ -29,6 +29,27 @@ class Word
 
 	def key_validate(word)
 		@dictionary[keyify(word)].include?(word)
+	end
+
+	def key_return(word)
+		@dictionary[keyify(word)]
+	end
+
+	def subkey_search(word)
+		subword_array = []
+		superset_array = powerset(word.chars)
+		superset_array.each do |key|
+			subword_array << key_return(key.join)
+		end
+		subword_array.flatten.compact.uniq
+	end
+
+	def powerset(charset)
+		return [charset] if charset.empty?
+
+		character = charset.pop
+		subset = powerset(charset)
+		subset | subset.map {|x| x | [character]}
 	end
 
 	#DEPRECATED

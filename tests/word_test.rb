@@ -16,6 +16,6 @@ class WordTest < Minitest::Test
 	end
 
 	def test_subwords
-		assert_equal(["ae", "ale", "el", "lea", "leap", "pale", "peal", "plea"], @word.subwords("apple"))
+		assert_equal(["pa", "al", "la", "alp", "lap", "pal", "ae", "pe", "ape", "pea", "el", "ale", "lea", "leap", "pale", "peal", "plea"], @word.subwords("apple"))
 	end
 end 
