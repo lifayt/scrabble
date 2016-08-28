@@ -6,7 +6,7 @@ class Word
 	attr_accessor :dictionary
 
 	def initialize
-		@dictionary = Dictionary.new().dictionary
+		@dictionary = Dictionary.new("data/twl3.txt").dictionary
 	end
 
 	def validate(word)
@@ -38,20 +38,5 @@ class Word
 end
 
 word = Word.new
-puts "Validation Testing!"
-puts "%----------------------------------------------------%"
-puts "Validating 'apple' : #{word.validate('apple')}"
-puts "Validating 'gorgeous' : #{word.validate('gorgeous')}"
-puts "Validating 'Polymorph' : #{word.validate('polymorph')}"
-puts "\nAnagram Testing!"
-puts "%----------------------------------------------------%"
-puts "Anagram 'apple' : #{word.anagrams('apple')}"
-puts "Anagram 'gorgeous' : #{word.anagrams('gorgeous')}"
-puts "Anagram 'polymorph' : #{word.anagrams('polymorph')}"
-puts "\nSubword Testing!"
-puts "%----------------------------------------------------%"
-puts "Subword 'apple' : #{word.subwords('apple')}"
-puts "Subword 'gorgeous' : #{word.subwords('gorgeous')}"
-puts "Subword 'polymorph' : #{word.subwords('polymorph')}"
 
 

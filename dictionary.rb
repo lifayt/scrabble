@@ -3,9 +3,9 @@ class Dictionary
 
 	attr_accessor :dictionary
 
-	def initialize
+	def initialize(path)
 		@dictionary = []
-		IO.foreach("data/twl3.txt") do |line| 
+		IO.foreach(path) do |line| 
 			@dictionary << line.downcase.strip
 		end
 	end
