@@ -4,7 +4,7 @@ require_relative "../word.rb"
 class WordTest < Minitest::Test
 
 	def setup
-		@word = Word.new("../data/twl3.txt")
+		@word = Word.new("../data/")
 	end
 
 	def test_validation
