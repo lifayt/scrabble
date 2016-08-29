@@ -7,10 +7,12 @@ class DictionaryTest < Minitest::Test
 		@dictionary = Dictionary.new("../data/").dictionary
 	end
 
-	def test_dictionary_size
-		assert_equal 168626, @dictionary
+	def test_dictionary_number_of_words
+		word_count = 0
+		@dictionary.each do |key, value|
+			word_count += value.size
+		end
+		assert_equal(187632, word_count)
 	end
-
-
 
 end
