@@ -6,7 +6,6 @@ class Dictionary
 	def initialize(path)
 		dict = path + "twl3.txt"
 		dict_serial = path + "dict_serial.dat"
-		#naive_initialize(path)
 		if File.exist?(dict_serial)
 			marshal_load(dict_serial)
 		else
@@ -25,13 +24,6 @@ class Dictionary
 		@dictionary = Marshal.load(File.read(path))
 	end
 
-	def naive_initialize(path)
-		@dictionary = []
-		IO.foreach(path) do |line| 
-			@dictionary << line.downcase.strip
-		end
-	end 
-
 	def dict_initialize(path)
 		@dictionary = {}
 		IO.foreach(path) do |line|
@@ -41,5 +33,12 @@ class Dictionary
 			@dictionary[line_key] << processed_line
 		end
 	end
+
+	def naive_initialize(path)
+		@dictionary = []
+		IO.foreach(path) do |line| 
+			@dictionary << line.downcase.strip
+		end
+	end 
 
 end

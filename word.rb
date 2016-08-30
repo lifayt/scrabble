@@ -3,22 +3,22 @@ require_relative 'dictionary'
 
 class Word
 
-	attr_accessor :dictionary
+	attr_accessor :dictionary, :validated, :anagram_list, :subword_list
 
 	def initialize(path)
 		@dictionary = Dictionary.new(path).dictionary
 	end
 
 	def validate(word)
-		key_validate(word)
+		@validated = key_validate(word)
 	end
 
 	def anagrams(word)
-		key_return(word)
+		@anagram_list = key_return(word)
 	end
 
 	def subwords(word)
-		subkey_search(word)
+		@subword_list = subkey_search(word)
 	end
 
 	private
@@ -28,11 +28,19 @@ class Word
 	end
 
 	def key_validate(word)
-		@dictionary[keyify(word)].include?(word)
+		if @dictionary.has_key?(keyify(word))
+			@dictionary[keyify(word)].include?(word)
+		else 
+			false 
+		end
 	end
 
 	def key_return(word)
-		@dictionary[keyify(word)]
+		if @dictionary.has_key?(keyify(word))
+			@dictionary[keyify(word)]
+		else
+			[""]
+		end
 	end
 
 	def subkey_search(word)

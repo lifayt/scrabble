@@ -1,0 +1,1 @@
+web: bundle exec ruby scrabble.rb -p $PORT
